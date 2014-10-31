@@ -1,0 +1,20 @@
+############# PERSONNAL RODOLPHE ####################
+
+alias ls='ls -hF --color'
+alias vi='vim'
+alias fuck='sudo $(history -p \!\!)'
+
+# Pour prendre mes binaires
+export PATH=$PATH:/home/rofra/bin/
+
+# Pour que quand on cree un dossier, il soit en 770
+umask 0002
+
+export VISUAL=/usr/bin/vim
+alias smeld='svn diff --diff-cmd meld'
+alias svndiff="svn diff --diff-cmd ~/.vim/scripts/svndiff"
+
+export HISTFILESIZE=10000
+
+############# PERSONNAL RODOLPHE END ####################
+
