@@ -16,5 +16,26 @@ alias svndiff="svn diff --diff-cmd ~/.vim/scripts/svndiff"
 
 export HISTFILESIZE=10000
 
+
+# ALIAS DOCKER: DEBUT
+# Suppression de tous les volumes non utilisés
+alias dkrmv="docker volume ls -qf dangling=true | xargs -r docker volume rm;echo 'Suppression des volumes non utilisés: OK'"
+# Arrêt de tous les containers
+alias dksta="docker ps -q | xargs -r docker stop;echo 'Arrêt des containers qui tournent: OK'"
+# Suppression des images
+alias dkrmi="docker images --quiet | xargs -r docker rmi;echo 'Suppression de toutes les images non utilisées: OK'"
+# Suppression de tous les containers qui ne tournent pas
+alias dkrma="docker ps -q | xargs -r docker rm;echo 'Suppression des containers not running: OK'"
+# Suppression de tous les networks
+alias dkrmn="docker network ls -q | xargs -r docker network rm;echo 'Suppression des networks: OK'"
+# ATTENTION: Arrêt des containers et suppression de tous les containers
+alias dkrmc="dksta;docker ps -q -a | xargs -r docker rm;echo 'Suppression de TOUS les containers: OK'"
+# ATTENTION: Purges des containers + Purge des volumes
+alias dkcle="dkrmc;dkrmv"
+# ATTENTION: Purges des containers + Purge des volumes + purge des images + purge des volumes
+alias dkcla="dkrmc;dkrmv;dkrmi;dkrmn"
+# ALIAS DOCKER: FIN
+
+
 ############# PERSONNAL RODOLPHE END ####################
 
